@@ -84,8 +84,8 @@ function bamazonManager() {
         var inventoryArray = [];
         connection.query("SELECT * FROM products", function(err, response) {
             response.forEach(function(element) {
-                    inventoryArray.push(element.product_name);
-                })
+                inventoryArray.push(element.product_name);
+            })
 
             inquirer.prompt([{
                 type: "list",
@@ -151,7 +151,8 @@ function bamazonManager() {
                         message: "Which department: ",
                         name: "new_department"
                     }]).then(function(user) {
-                        connection.query("INSERT INTO products (product_name, department_name, price, stock_quantity) VALUES ( ? , ? , ? , ?)", [answer.product_name, user.new_department, answer.price, answer.stock_quantity], function(err, response) {
+
+                        connection.query("INSERT INTO products (product_name, department_name, price, stock_quantity) VALUES ( ? , ? , ? , ?)", [answer.product_name, capitalizeFirstLetter(user.new_department), answer.price, answer.stock_quantity], function(err, response) {
                             if (err) throw err;
                             console.log("Added!");
                             console.log("#".repeat(50));
@@ -176,6 +177,9 @@ function bamazonManager() {
         });
     }
 
+    function capitalizeFirstLetter(string) {
+        return string.charAt(0).toUpperCase() + string.slice(1);
+    }
 
 }
 
