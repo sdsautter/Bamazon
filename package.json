@@ -1,0 +1,26 @@
+{
+  "name": "bamazon",
+  "version": "1.0.0",
+  "description": "Product inventory",
+  "main": "CLI.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sdsautter/Bamazon.git"
+  },
+  "keywords": [
+    "bamazon"
+  ],
+  "author": "Scott Sautter",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sdsautter/Bamazon/issues"
+  },
+  "homepage": "https://github.com/sdsautter/Bamazon#readme",
+  "dependencies": {
+    "inquirer": "^3.0.6",
+    "mysql": "^2.13.0"
+  }
+}
